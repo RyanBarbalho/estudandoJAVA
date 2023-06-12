@@ -1,0 +1,28 @@
+package entities;
+
+public final class OutsourcedEmployee extends Employee {
+    private Double additionalCharge;
+
+    public OutsourcedEmployee() {
+        super();
+    }
+
+    public OutsourcedEmployee(String name, Integer hours, Double valuePerHour, Double additionalCharge) {
+        super(name, hours, valuePerHour);
+        this.additionalCharge = additionalCharge;
+    }
+
+    public Double getAdditionalCharge() {
+        return additionalCharge;
+    }
+
+    public void setAdditionalCharge(Double additionalCharge) {
+        this.additionalCharge = additionalCharge;
+    }
+
+    @Override
+    public void payment() {
+        System.out.println(getName() + " - $"
+                + String.format("%.2f", (getHours() * getValuePerHour()) + (additionalCharge * 1.1)));
+    }
+}
